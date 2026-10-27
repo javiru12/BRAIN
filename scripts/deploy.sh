@@ -25,7 +25,7 @@ aws s3 sync out "s3://$BUCKET" \
 
 echo "▶ Invalidando CloudFront…"
 INV=$(aws cloudfront create-invalidation \
-  --profile "$PROFILE" --only-show-errors \
+  --profile "$PROFILE" \
   --distribution-id "$DIST_ID" \
   --paths "/*" \
   --query 'Invalidation.Id' --output text)
