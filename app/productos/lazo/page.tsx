@@ -6,6 +6,11 @@ import Reveal from '@/components/Reveal'
 import Accordion from '@/components/Accordion'
 import Cta from '@/components/Cta'
 import LazoDemo from '@/components/lazo/LazoDemo'
+import CrmToLazo from '@/components/lazo/CrmToLazo'
+import ObjectiveDemo from '@/components/lazo/ObjectiveDemo'
+import AgentFeed from '@/components/lazo/AgentFeed'
+import AskLazo from '@/components/lazo/AskLazo'
+import ToolChips from '@/components/lazo/ToolChips'
 import { ArrowRight, Calendar, Chat, Check, Clock, Doc, Eye, Map, Route, Signal, Sliders, Target, Users } from '@/components/Icons'
 
 export const metadata = pageMeta({
@@ -18,6 +23,7 @@ const sections = [
   { id: 'que-es', label: 'Qué es' },
   { id: 'como-funciona', label: 'Cómo funciona' },
   { id: 'capacidades', label: 'Capacidades' },
+  { id: 'agentes', label: 'Agentes' },
   { id: 'demo', label: 'Demo' },
   { id: 'integraciones', label: 'Migración e integraciones' },
   { id: 'control', label: 'Control' },
@@ -53,6 +59,10 @@ const capabilities = [
   { Icon: Eye, t: 'Consulta del contexto de una cuenta', d: 'Preguntar a la cuenta: qué se acordó, qué está pendiente, quién decide.' },
   { Icon: Sliders, t: 'Configuración de autonomía', d: 'Qué hace LAZO por su cuenta y qué deja preparado para aprobación, tarea por tarea.' },
 ]
+
+const crms = ['Salesforce', 'HubSpot', 'Pipedrive', 'Zoho CRM', 'Microsoft Dynamics 365', 'Close', '…y más']
+const workTools = ['Gmail', 'Google Calendar', 'WhatsApp', 'Google Meet', 'Outlook', 'Microsoft Teams', 'Slack', 'Zoom', 'LinkedIn']
+const importFrom = ['Migrar desde Salesforce', 'Migrar desde HubSpot', 'Migrar desde Excel', 'Migrar desde Pipedrive', 'Migrar desde Zoho CRM']
 
 const faq = [
   {
@@ -174,6 +184,19 @@ export default function Lazo() {
         </div>
       </section>
 
+      <section className="section" id="del-crm">
+        <div className="container">
+          <Reveal className="section-head">
+            <p className="eyebrow">Del registro a la relación</p>
+            <h2>El CRM fue hecho para guardar datos. LAZO, para hacer avanzar tu negocio.</h2>
+            <p className="lead">Sustituye contactos, tareas, pipeline y reportes manuales por agentes que entienden tus relaciones, mantienen el contexto y se encargan de moverlas hacia adelante.</p>
+          </Reveal>
+          <Reveal>
+            <CrmToLazo />
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section section--surface" id="que-es">
         <div className="container">
           <div className="split" style={{ alignItems: 'start' }}>
@@ -224,7 +247,24 @@ export default function Lazo() {
         </div>
       </section>
 
-      <section className="section section--surface" id="capacidades">
+      <section className="section section--surface" id="objetivo">
+        <div className="container split" style={{ alignItems: 'start' }}>
+          <Reveal>
+            <p className="eyebrow">Dile qué quieres lograr</p>
+            <h2>
+              No le pides reportes. <span style={{ color: 'var(--accent)' }}>Le das un objetivo.</span>
+            </h2>
+            <p className="lead" style={{ marginTop: 14 }}>
+              Escribes «Cerrar Grupo Altamira este trimestre». LAZO analiza la cuenta, encuentra los huecos, arma el plan, calcula el camino hacia quien decide y prepara el primer movimiento. Tú revisas y decides.
+            </p>
+          </Reveal>
+          <Reveal>
+            <ObjectiveDemo />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section" id="capacidades">
         <div className="container">
           <Reveal className="section-head">
             <p className="eyebrow">Capacidades</p>
@@ -248,7 +288,35 @@ export default function Lazo() {
         </div>
       </section>
 
-      <section className="section" id="demo">
+      <section className="section section--surface" id="agentes">
+        <div className="container split" style={{ alignItems: 'start', gridTemplateColumns: 'minmax(0,4fr) minmax(0,7fr)' }}>
+          <Reveal>
+            <p className="eyebrow">Tus agentes</p>
+            <h2>
+              Mientras tú cierras, <span style={{ color: 'var(--accent)' }}>LAZO trabaja.</span>
+            </h2>
+            <p className="lead" style={{ marginTop: 14 }}>
+              Analiza tus conversaciones, reuniones y correos, detecta señales, actualiza el contexto y prepara los siguientes movimientos, con mucha menos captura manual.
+            </p>
+            <a href="#demo" className="link" style={{ marginTop: 18 }}>
+              Conoce a los agentes <ArrowRight />
+            </a>
+          </Reveal>
+          <Reveal>
+            <AgentFeed />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section" id="contexto">
+        <div className="container">
+          <Reveal>
+            <AskLazo />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section section--surface" id="demo">
         <div className="container">
           <Reveal className="section-head">
             <p className="eyebrow">Demostración interactiva</p>
@@ -261,13 +329,16 @@ export default function Lazo() {
         </div>
       </section>
 
-      <section className="section section--surface" id="integraciones">
+      <section className="section" id="integraciones">
         <div className="container">
           <Reveal className="section-head">
-            <p className="eyebrow">Migración e integraciones</p>
-            <h2>Trabaja con la información que ya tienes.</h2>
-            <p className="lead">LAZO contempla cinco tipos de información. Conviene distinguir entre importar datos al inicio, integrar una herramienta de forma continua y lo que está previsto para más adelante.</p>
+            <p className="eyebrow">Migra sin empezar de cero</p>
+            <h2>Cambia a LAZO con la información que ya tienes.</h2>
+            <p className="lead">Importa tus datos desde tu CRM actual y empieza con el contexto que ya existe. Conviene distinguir entre importar datos al inicio, integrar una herramienta de forma continua y lo que está previsto para más adelante.</p>
           </Reveal>
+          <div style={{ marginBottom: 40 }}>
+            <ToolChips items={crms} label="CRM desde los que se puede importar, sujeto a confirmación por proyecto" />
+          </div>
           <div className="grid grid-2" style={{ alignItems: 'start' }}>
             <Reveal>
               <ul className="list-rows">
@@ -331,10 +402,28 @@ export default function Lazo() {
               </p>
             </Reveal>
           </div>
+          <Reveal>
+            <div style={{ marginTop: 56, paddingTop: 40, borderTop: '1px solid var(--border)' }}>
+              <p className="eyebrow">Integraciones</p>
+              <h3 className="display" style={{ fontSize: 'clamp(1.5rem,1.1rem + 1.2vw,2.1rem)', maxWidth: 640 }}>
+                LAZO empieza donde ya viven tus relaciones.
+              </h3>
+              <p className="lead" style={{ margin: '12px 0 24px' }}>
+                Herramientas de comunicación, agenda y datos con las que LAZO puede trabajar. Cuáles se conectan, y en qué modalidad, se confirma en cada proyecto.
+              </p>
+              <div className="stack" style={{ gap: 18 }}>
+                <ToolChips items={workTools} label="Herramientas de comunicación y agenda, sujetas a confirmación por proyecto" />
+                <ToolChips items={importFrom} label="Importación de datos desde CRM y hojas de cálculo" />
+              </div>
+              <p className="small muted" style={{ marginTop: 16 }}>
+                Los nombres corresponden a sus respectivos titulares y se muestran solo para indicar el tipo de herramienta. No implican alianza ni compatibilidad garantizada.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="section" id="control">
+      <section className="section section--surface" id="control">
         <div className="container">
           <Reveal className="section-head">
             <p className="eyebrow">Autonomía y control</p>
@@ -383,28 +472,42 @@ export default function Lazo() {
         </div>
       </section>
 
-      <section className="section section--surface" id="modelo">
-        <div className="container split">
+      <section className="section" id="precios">
+        <div className="container split" style={{ alignItems: 'center' }}>
           <Reveal>
-            <p className="eyebrow">Modelo comercial</p>
-            <h2>Alcance y configuración se conversan.</h2>
+            <p className="eyebrow">Precios</p>
+            <h2>
+              Olvídate de suscripciones. <span style={{ color: 'var(--accent)' }}>LAZO se adapta a tu negocio.</span>
+            </h2>
             <p className="lead" style={{ marginTop: 14 }}>
-              El modelo de LAZO se adapta al tamaño del equipo, a las fuentes de información y al nivel de autonomía que se quiera configurar. No publicamos tarifas: la propuesta se define en una conversación de alcance.
+              Sin licencias por asiento ni módulos que nadie usa. LAZO se configura a tu forma de vender, se conecta, según el proyecto, a las herramientas que ya tienes y crece con tu equipo.
             </p>
+            <Link href="/contacto?interes=lazo" className="btn btn--primary" style={{ marginTop: 22 }}>
+              Hablar de precios <ArrowRight />
+            </Link>
           </Reveal>
-          <Reveal>
-            <div className="card">
-              <h3>Hablemos de tu caso</h3>
-              <p>Cuéntanos cómo vende tu equipo hoy, qué herramientas usa y qué quieres que mejore. Con eso preparamos una propuesta de alcance y configuración.</p>
-              <Link href="/contacto?interes=lazo" className="btn btn--primary" style={{ marginTop: 18 }}>
-                Conversar sobre alcance <ArrowRight />
-              </Link>
-            </div>
+          <Reveal className="grid grid-3" >
+            {[
+              [Users, 'Sin asientos', 'Todo tu equipo dentro. Pagas por el valor que LAZO mueve, no por cuántas personas entran.'],
+              [Sliders, 'A tu medida', 'Tus etapas, tu vocabulario, tus canales. LAZO aprende cómo vende tu empresa, no al revés.'],
+              [Signal, 'Crece contigo', 'Empieza con un equipo y escala a toda la empresa sin empezar de cero.'],
+            ].map(([Icon, t, d]) => {
+              const I = Icon as typeof Users
+              return (
+                <div className="card price-card" key={t as string} style={{ padding: 22 }}>
+                  <span className="icon-box">
+                    <I />
+                  </span>
+                  <h3 style={{ fontSize: '1.05rem' }}>{t as string}</h3>
+                  <p className="small">{d as string}</p>
+                </div>
+              )
+            })}
           </Reveal>
         </div>
       </section>
 
-      <section className="section" id="preguntas">
+      <section className="section section--surface" id="preguntas">
         <div className="container split" style={{ alignItems: 'start' }}>
           <Reveal>
             <p className="eyebrow">Preguntas frecuentes</p>

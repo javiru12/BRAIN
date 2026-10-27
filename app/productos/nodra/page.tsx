@@ -8,11 +8,12 @@ import Tabs from '@/components/Tabs'
 import Cta from '@/components/Cta'
 import NodraArchitecture from '@/components/nodra/NodraArchitecture'
 import NodraFlow from '@/components/nodra/NodraFlow'
+import NodraAudit from '@/components/nodra/NodraAudit'
 import { ArrowRight, Bot, Building, Check, Chart, Cloud, Coins, Eye, FileCheck, Flask, Headset, Heart, Lock, Scale, Server, Settings, Shield, Users } from '@/components/Icons'
 
 export const metadata = pageMeta({
   title: 'Nodra: gobierno y control de tu ecosistema de IA',
-  description: 'Nodra reúne políticas, supervisión y visibilidad para agentes, modelos, herramientas y flujos de trabajo. Módulos AgentGuard, AiSight, FinOps y RiskSim.',
+  description: 'Nodra reúne políticas, supervisión y visibilidad para agentes, modelos, herramientas y flujos de trabajo. Módulos Riel, Faro, Caudal y Simulacro.',
   path: '/productos/nodra',
 })
 
@@ -20,6 +21,7 @@ const sections = [
   { id: 'plataforma', label: 'Plataforma' },
   { id: 'modulos', label: 'Módulos' },
   { id: 'como-funciona', label: 'Cómo funciona' },
+  { id: 'auditoria', label: 'Auditoría' },
   { id: 'profundidad', label: 'En detalle' },
   { id: 'casos', label: 'Casos de uso' },
   { id: 'despliegue', label: 'Despliegue' },
@@ -28,13 +30,13 @@ const sections = [
 
 const modules = [
   {
-    id: 'agentguard',
-    label: 'AgentGuard',
+    id: 'riel',
+    label: 'Riel',
     icon: <Shield />,
     content: (
       <div className="split" style={{ alignItems: 'start' }}>
         <div>
-          <h3>AgentGuard · Políticas y controles para agentes</h3>
+          <h3>Riel · Políticas y controles para agentes</h3>
           <p className="muted" style={{ marginTop: 8 }}>
             Define qué puede hacer cada agente: qué contenido puede generar, qué herramientas puede usar, cómo debe tratar los datos y qué acciones requieren aprobación de una persona. Las políticas se aplican en el momento en que el agente propone actuar.
           </p>
@@ -66,15 +68,15 @@ const modules = [
     ),
   },
   {
-    id: 'aisight',
-    label: 'AiSight',
+    id: 'faro',
+    label: 'Faro',
     icon: <Eye />,
     content: (
       <div className="split" style={{ alignItems: 'start' }}>
         <div>
-          <h3>AiSight · Gobierno del uso de herramientas de IA por personas</h3>
+          <h3>Faro · Gobierno del uso de herramientas de IA por personas</h3>
           <p className="muted" style={{ marginTop: 8 }}>
-            Las personas de una organización usan herramientas de IA SaaS para trabajar. AiSight gobierna ese acceso: quién puede usar qué herramienta, cómo se solicita y aprueba, qué confirmaciones se piden y cómo se revisa el acceso con el tiempo.
+            Las personas de una organización usan herramientas de IA SaaS para trabajar. Faro gobierna ese acceso: quién puede usar qué herramienta, cómo se solicita y aprueba, qué confirmaciones se piden y cómo se revisa el acceso con el tiempo.
           </p>
           <ul className="prose muted" style={{ marginTop: 12 }}>
             <li>Catálogo de herramientas de IA permitidas y su estado.</li>
@@ -110,15 +112,15 @@ const modules = [
     ),
   },
   {
-    id: 'finops',
-    label: 'FinOps',
+    id: 'caudal',
+    label: 'Caudal',
     icon: <Coins />,
     content: (
       <div className="split" style={{ alignItems: 'start' }}>
         <div>
-          <h3>FinOps · Visibilidad, asignación y administración del gasto en IA</h3>
+          <h3>Caudal · Visibilidad, asignación y administración del gasto en IA</h3>
           <p className="muted" style={{ marginTop: 8 }}>
-            El gasto en modelos y herramientas de IA se reparte entre agentes, equipos y casos de uso. FinOps lo hace visible, lo asigna a quien corresponde y permite administrarlo con límites y alertas.
+            El gasto en modelos y herramientas de IA se reparte entre agentes, equipos y casos de uso. Caudal lo hace visible, lo asigna a quien corresponde y permite administrarlo con límites y alertas.
           </p>
           <ul className="prose muted" style={{ marginTop: 12 }}>
             <li>Seguimiento de costes por modelo, agente, equipo o flujo.</li>
@@ -152,15 +154,15 @@ const modules = [
     ),
   },
   {
-    id: 'risksim',
-    label: 'RiskSim',
+    id: 'simulacro',
+    label: 'Simulacro',
     icon: <Flask />,
     content: (
       <div className="split" style={{ alignItems: 'start' }}>
         <div>
-          <h3>RiskSim · Evaluación de riesgos y análisis de políticas</h3>
+          <h3>Simulacro · Evaluación de riesgos y análisis de políticas</h3>
           <p className="muted" style={{ marginTop: 8 }}>
-            Antes de poner un agente o una política en producción, conviene saber cómo se comportaría ante escenarios de riesgo. RiskSim permite evaluar categorías de riesgo y analizar si las políticas definidas cubren los casos que preocupan.
+            Antes de poner un agente o una política en producción, conviene saber cómo se comportaría ante escenarios de riesgo. Simulacro permite evaluar categorías de riesgo y analizar si las políticas definidas cubren los casos que preocupan.
           </p>
           <ul className="prose muted" style={{ marginTop: 12 }}>
             <li>Categorías de riesgo: fuga de datos, acciones no autorizadas, contenido inadecuado, uso fuera de alcance.</li>
@@ -168,7 +170,7 @@ const modules = [
             <li>Resultados orientados a ajustar políticas antes de operar.</li>
           </ul>
           <div className="notice" style={{ marginTop: 14 }}>
-            <strong>Demostración y producción.</strong> La demostración de RiskSim muestra el tipo de análisis con escenarios de ejemplo. En producción, el análisis se realiza sobre las políticas y los agentes reales de la organización. Las cifras de una demo no son resultados reales.
+            <strong>Demostración y producción.</strong> La demostración de Simulacro muestra el tipo de análisis con escenarios de ejemplo. En producción, el análisis se realiza sobre las políticas y los agentes reales de la organización. Las cifras de una demo no son resultados reales.
           </div>
         </div>
         <div className="panel">
@@ -205,7 +207,7 @@ const depth = [
   { Icon: Coins, t: 'Seguimiento de costes', d: 'Coste por modelo, agente, equipo o flujo, con límites y avisos configurables.' },
   { Icon: Settings, t: 'Automatizaciones publicadas', d: 'Flujos de trabajo con IA que la organización ha revisado y puesto a disposición de sus equipos bajo políticas definidas.' },
   { Icon: Scale, t: 'Categorías de riesgo', d: 'Fuga de datos, acciones no autorizadas, contenido inadecuado y uso fuera de alcance, entre otras.' },
-  { Icon: Flask, t: 'Demo de RiskSim frente a producción', d: 'La demo usa escenarios de ejemplo. En producción, el análisis se hace sobre las políticas y los agentes reales.' },
+  { Icon: Flask, t: 'Demo de Simulacro frente a producción', d: 'La demo usa escenarios de ejemplo. En producción, el análisis se hace sobre las políticas y los agentes reales.' },
 ]
 
 const useCases = [
@@ -285,9 +287,9 @@ const faq = [
   { q: '¿Qué gobierna Nodra?', a: 'Agentes, modelos, herramientas, aplicaciones de IA, flujos de trabajo y las políticas, aprobaciones y registros asociados. Es una capa transversal de gobierno y control, no una herramienta de búsqueda documental.' },
   { q: '¿Cómo se definen políticas y responsables?', a: 'Las políticas las definen los responsables de la organización (tecnología, cumplimiento, áreas de negocio) y se aplican a agentes, herramientas y flujos. Cada política tiene un responsable y puede revisarse y versionarse.' },
   { q: '¿Cuándo necesita aprobación una acción?', a: 'Cuando la política aplicable lo indica: normalmente acciones con efecto externo, con datos sensibles o con impacto económico. La organización decide qué acciones y quién las aprueba.' },
-  { q: '¿Qué diferencia hay entre AgentGuard y AiSight?', a: 'AgentGuard gobierna lo que hacen los agentes de IA: contenido, herramientas, datos y acciones. AiSight gobierna el uso que hacen las personas de herramientas de IA SaaS: acceso, solicitudes, confirmaciones y revisión.' },
-  { q: '¿Cómo se observa actividad y gasto?', a: 'Mediante registros de acciones, aprobaciones y errores, y el seguimiento de costes por modelo, agente, equipo o flujo. FinOps permite además asignar el gasto y configurar límites y avisos.' },
-  { q: '¿Qué muestra la demostración de RiskSim?', a: 'El tipo de análisis que realiza: escenarios de riesgo y cobertura de las políticas. Usa ejemplos, no datos de tu organización. En producción, el análisis se hace sobre tus políticas y agentes reales.' },
+  { q: '¿Qué diferencia hay entre Riel y Faro?', a: 'Riel gobierna lo que hacen los agentes de IA: contenido, herramientas, datos y acciones. Faro gobierna el uso que hacen las personas de herramientas de IA SaaS: acceso, solicitudes, confirmaciones y revisión.' },
+  { q: '¿Cómo se observa actividad y gasto?', a: 'Mediante registros de acciones, aprobaciones y errores, y el seguimiento de costes por modelo, agente, equipo o flujo. Caudal permite además asignar el gasto y configurar límites y avisos.' },
+  { q: '¿Qué muestra la demostración de Simulacro?', a: 'El tipo de análisis que realiza: escenarios de riesgo y cobertura de las políticas. Usa ejemplos, no datos de tu organización. En producción, el análisis se hace sobre tus políticas y agentes reales.' },
   { q: '¿Qué opciones de despliegue existen?', a: 'Nube, privado y soberano. El alcance concreto de cada opción depende de los requisitos técnicos, de residencia de datos y del proyecto. Se concreta en la conversación de alcance.' },
 ]
 
@@ -421,7 +423,22 @@ export default function Nodra() {
         </div>
       </section>
 
-      <section className="section" id="profundidad">
+      <section className="section" id="auditoria">
+        <div className="container">
+          <Reveal className="section-head">
+            <p className="eyebrow">Auditoría</p>
+            <h2>Qué se le pregunta a la IA, quién lo hace y bajo qué reglas.</h2>
+            <p className="lead">
+              Con Faro ves la actividad de las personas con herramientas de IA; con Riel, la de los agentes que ya viven en tu organización. Conectas un agente a Nodra, defines las reglas y cada evento queda registrado con su resultado.
+            </p>
+          </Reveal>
+          <Reveal>
+            <NodraAudit />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section section--surface" id="profundidad">
         <div className="container">
           <Reveal className="section-head">
             <p className="eyebrow">En detalle</p>
@@ -441,7 +458,7 @@ export default function Nodra() {
         </div>
       </section>
 
-      <section className="section section--surface" id="casos">
+      <section className="section" id="casos">
         <div className="container">
           <Reveal className="section-head">
             <p className="eyebrow">Casos de uso</p>
@@ -454,7 +471,7 @@ export default function Nodra() {
         </div>
       </section>
 
-      <section className="section" id="despliegue">
+      <section className="section section--surface" id="despliegue">
         <div className="container">
           <Reveal className="section-head">
             <p className="eyebrow">Despliegue</p>
@@ -485,7 +502,7 @@ export default function Nodra() {
         </div>
       </section>
 
-      <section className="section section--surface" id="preguntas">
+      <section className="section" id="preguntas">
         <div className="container split" style={{ alignItems: 'start' }}>
           <Reveal>
             <p className="eyebrow">Preguntas frecuentes</p>
