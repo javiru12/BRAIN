@@ -5,8 +5,7 @@ export const site = {
     'Diseñamos, desarrollamos e implementamos soluciones de IA. Conoce nuestros agentes, servicios y productos propios: LAZO y Nodra.',
   tagline: 'Soluciones de IA para hacer avanzar tu empresa.',
   purpose: 'Convertimos el conocimiento de las organizaciones en capacidad para actuar.',
-  // Dominio canónico pendiente de definir. No se inventa.
-  url: undefined as string | undefined,
+  url: 'https://brainia.mx',
 }
 
 export type NavLink = { href: string; label: string; desc?: string }

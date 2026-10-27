@@ -34,10 +34,23 @@ node scripts/verify.mjs      # capturas en scripts/shots/, comprueba 200/404, un
 
 El contenido de cada página está en su `page.tsx` como constantes al inicio del archivo, para editarlo sin tocar el diseño.
 
+## Hosting (S3 + CloudFront, brainia.mx)
+
+El sitio es 100 % estático (`output: 'export'`). No necesita servidor Node.
+
+- Comando de build: `npm ci && npm run build`
+- Carpeta a publicar: `out/`
+- Cada ruta es `carpeta/index.html` (`trailingSlash: true`), así que S3 la resuelve con el *default root object* `index.html` por carpeta (origen tipo *website endpoint*, o una CloudFront Function que añada `/index.html` a las rutas sin extensión).
+- Página de error: respuesta 404 → `/404.html` con código 404.
+- Dominio canónico: `https://brainia.mx` sin `www`. Redirigir `www.brainia.mx` → `brainia.mx` (301).
+- Certificado ACM en `us-east-1` para CloudFront con ambos nombres.
+- `sitemap.xml`, `robots.txt` y `og.png` se generan en el build.
+- Tras cada despliegue: invalidar `/*` en CloudFront.
+
 ## Pendientes para publicar
 
 1. **Formulario de contacto.** No existe destino de envío. Configurar `endpoint` en `content/contact.ts` (endpoint propio, servicio de formularios o CRM). Hasta entonces el formulario valida pero avisa de que el envío no está activo; nunca simula un envío exitoso.
-2. **Dominio canónico y perfiles sociales.** No definidos. Añadir `metadataBase`/`alternates.canonical` en `app/layout.tsx` y una imagen Open Graph cuando exista.
+2. **Perfiles sociales.** No definidos; no se enlazan. El dominio, el canónico y la imagen Open Graph (`scripts/og.mjs` → `public/og.png`) ya están configurados.
 3. **Favicon.** `brain-icon.png` se recortó del PNG original. Si se quiere en vectorial, extraer solo el símbolo del `brain-logo.svg`.
 4. **Datos de contacto.** No se publican correo, teléfono, dirección ni plazo de respuesta. Añadirlos en `app/contacto/page.tsx` y en el pie cuando se decidan.
 5. **Modelo comercial de LAZO.** No se publican tarifas ni el modelo "sin licencias por asiento" de la fuente: requiere validación comercial.

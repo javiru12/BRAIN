@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swa
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-heading', display: 'swap', weight: ['600', '700', '800'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: site.title,
   description: site.description,
   icons: { icon: '/brand/brain-icon.png' },
