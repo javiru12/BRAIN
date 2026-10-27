@@ -38,6 +38,8 @@ El contenido de cada página está en su `page.tsx` como constantes al inicio de
 
 El sitio es 100 % estático (`output: 'export'`). No necesita servidor Node.
 
+- **Desplegar:** `npm run deploy` (compila, sube `out/` al bucket `brain-web-738685083380` con el perfil AWS `otraempresa` e invalida la distribución `E3D0CQNB854L8X`).
+- URL de CloudFront: `https://d2dwduxxqu5rcl.cloudfront.net` (hasta que brainia.mx apunte ahí).
 - Comando de build: `npm ci && npm run build`
 - Carpeta a publicar: `out/`
 - Cada ruta es `carpeta/index.html` (`trailingSlash: true`), así que S3 la resuelve con el *default root object* `index.html` por carpeta (origen tipo *website endpoint*, o una CloudFront Function que añada `/index.html` a las rutas sin extensión).

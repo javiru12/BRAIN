@@ -8,7 +8,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "verify": "node scripts/verify.mjs",
-    "og": "node scripts/og.mjs"
+    "og": "node scripts/og.mjs",
+    "deploy": "bash scripts/deploy.sh"
   },
   "dependencies": {
     "next": "^15.5.28",
