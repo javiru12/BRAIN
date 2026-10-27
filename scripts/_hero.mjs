@@ -1,0 +1,22 @@
+import { chromium } from 'playwright-core'
+const b = await chromium.launch({ executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' })
+const p = await b.newPage({ viewport: { width: 1366, height: 820 } })
+await p.goto('http://localhost:3000/', { waitUntil: 'networkidle' })
+await p.waitForTimeout(1500)
+await p.screenshot({ path: 'scripts/shots/hero-1.png' })
+await p.waitForTimeout(4300)
+await p.screenshot({ path: 'scripts/shots/hero-2.png' })
+await p.waitForTimeout(4300)
+await p.screenshot({ path: 'scripts/shots/hero-3.png' })
+// menú desplegable abierto
+await p.hover('text=Qué hacemos')
+await p.waitForTimeout(400)
+await p.screenshot({ path: 'scripts/shots/menu.png', clip: { x: 0, y: 0, width: 1366, height: 320 } })
+// móvil con menú abierto
+const m = await b.newPage({ viewport: { width: 390, height: 844 } })
+await m.goto('http://localhost:3000/', { waitUntil: 'networkidle' })
+await m.click('button[aria-label="Abrir menú"]')
+await m.click('text=Qué hacemos')
+await m.waitForTimeout(400)
+await m.screenshot({ path: 'scripts/shots/mobile-menu.png' })
+await b.close()
