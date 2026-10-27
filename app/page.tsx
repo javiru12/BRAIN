@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { pageMeta } from '@/lib/metadata'
 import { site, services } from '@/content/site'
 import HeroMotion from '@/components/home/HeroMotion'
-import HeroNetwork from '@/components/home/HeroNetwork'
+import ScrollBrain from '@/components/home/ScrollBrain'
 import NeedsSelector from '@/components/home/NeedsSelector'
 import Reveal from '@/components/Reveal'
 import Cta from '@/components/Cta'
@@ -11,40 +11,11 @@ import { ArrowRight, Bot, Compass, Plug, Target, Users, Map, Shield, Eye, Layers
 export const metadata = pageMeta({ title: site.title, description: site.description, path: '/' })
 
 const icons = { target: Target, bot: Bot, plug: Plug, compass: Compass } as const
-const titleWords = site.tagline.split(' ')
 
 export default function Home() {
   return (
     <>
-      <section className="hero">
-        <HeroNetwork />
-        <div className="container hero__inner">
-          <div>
-            <p className="eyebrow">Soluciones de inteligencia artificial</p>
-            <h1 className="hero__title">
-              {titleWords.map((w, i) => (
-                <span key={i}>
-                  <span className="w">{w}</span>{' '}
-                </span>
-              ))}
-            </h1>
-            <p className="lead hero__lead">
-              Diseñamos, desarrollamos e implementamos soluciones de inteligencia artificial. Creamos agentes y productos que conectan conocimiento, sistemas y procesos.
-            </p>
-            <div className="hero__actions">
-              <Link href="/soluciones" className="btn btn--primary">
-                Explorar soluciones <ArrowRight />
-              </Link>
-              <Link href="/productos/lazo" className="btn btn--secondary">
-                Ver productos
-              </Link>
-            </div>
-          </div>
-          <div className="hero__visual">
-            <HeroMotion />
-          </div>
-        </div>
-      </section>
+      <ScrollBrain />
 
       <div className="strip">
         <div className="container strip__inner">
@@ -71,6 +42,24 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <section className="section section--surface" id="proyecto">
+        <div className="container split">
+          <Reveal>
+            <p className="eyebrow">Un proyecto, en movimiento</p>
+            <h2>Del contexto a una decisión revisada.</h2>
+            <p className="lead" style={{ marginTop: 14 }}>
+              Una solución de IA reúne el contexto autorizado, prepara una propuesta y la deja lista para que una persona la revise antes de actuar. Así se ve, de forma ilustrativa.
+            </p>
+            <Link href="/soluciones/agentes-ia" className="link" style={{ marginTop: 20 }}>
+              Cómo funcionan los agentes <ArrowRight />
+            </Link>
+          </Reveal>
+          <Reveal>
+            <HeroMotion />
+          </Reveal>
+        </div>
+      </section>
 
       <section className="section" id="que-hacemos">
         <div className="container">

@@ -25,7 +25,8 @@ node scripts/verify.mjs      # capturas en scripts/shots/, comprueba 200/404, un
 | `app/` | Rutas: `/`, `/soluciones` (+4 servicios), `/empresa`, `/productos/lazo`, `/productos/nodra`, `/contacto`, 404 |
 | `app/globals.css` | Sistema visual: tokens de color, tipografía, componentes, movimiento, `prefers-reduced-motion` |
 | `components/` | Compartidos: Header, Footer, Breadcrumbs, Tabs, Accordion, Reveal, Cta, ProductSubnav, ServicePage |
-| `components/home/` | HeroMotion (recorrido animado Contexto → Propuesta → Revisión), HeroNetwork, NeedsSelector |
+| `components/home/` | ScrollBrain (portada: cerebro scroll-driven con el hero encima), HeroMotion (recorrido animado Contexto → Propuesta → Revisión), NeedsSelector |
+| `public/motion/` | Fotogramas del cerebro (`lg/` 1280 px y `sm/` 720 px). Se regeneran con `node scripts/frames.mjs` a partir de `../brain-motion.mp4` |
 | `components/lazo/`, `components/nodra/` | Demos ilustrativas de producto |
 | `content/site.ts` | Textos de navegación, servicios, productos, opciones de interés |
 | `content/contact.ts` | Configuración del envío del formulario |
